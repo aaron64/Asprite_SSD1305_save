@@ -53,7 +53,8 @@ file:write(string.char(frames))
 
 -- image data
 local zeroPadding = fsprite.width-((fsprite.width/8)*8)
-local bytes = width/8;
+local bytes = math.ceil(width/8.0)
+app.alert(bytes)
 for c, cel in ipairs(fsprite.cels) do
     app.alert(c)
     local fimage = cel.image
