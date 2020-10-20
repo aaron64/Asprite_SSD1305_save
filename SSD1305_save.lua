@@ -54,16 +54,14 @@ file:write(string.char(frames))
 -- image data
 local zeroPadding = fsprite.width-((fsprite.width/8)*8)
 local bytes = math.ceil(width/8.0)
-app.alert(bytes)
 for c, cel in ipairs(fsprite.cels) do
-    app.alert(c)
     local fimage = cel.image
     for y = 0, fsprite.height - 1 do
         for b = 0, bytes - 1 do
             local byte = 0
             for x = 0, 7 do
                 local px = app.pixelColor.grayaV(fimage:getPixel(x + b * 8, y))
-                if px > 1 then
+                if px > 128 then
                     px = 1
                 else
                     px = 0
